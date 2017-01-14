@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>jQuery alphaindex demo</title>
+
+    <script src="http://yandex.st/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="../src/jquery.alphaindex.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+    <script>
+        $(function() {
+
+            $('#btn-init').click(function () {
+                $(this).addClass('disabled').off('click');
+
+                var index = $('#my-list').makeAlphaIndex();
+                index.alphaIndexBar.addClass('list-inline');
+            });
+
+        });
+    </script>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">jQuery alphaindex demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" role="main">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert">
+                    <strong>Repository: </strong>
+                    <a href="https://github.com/idlesign/jquery-alphaindex">https://github.com/idlesign/jquery-alphaindex</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px">
+            <div class="col-md-2">
+
+                <button id="btn-init" class="btn btn-primary">Make alphaindex</button>
+
+            </div>
+            <div class="col-md-10">
+                
+                <ul id="my-list">
+                    <li>Kimdar</li>
+                    <li>Tomara Mylo Gai</li>
+                    <li>Wathmon Elthen</li>
+                    <li>Mirayam Migorn</li>
+                    <li>Eli</li>
+                    <li>Ahanna Gibolt</li>
+                    <li><a href="#">Grim Tibers</a></li>
+                    <li>Lyna</li>
+                    <li>Vilan</li>
+                    <li>Tristan Modum</li>
+                    <li>Temil</li>
+                    <li>Zigmal Updar</li>
+                    <li>Derik Elvar Fronar</li>
+                    <li>Drophar Achard</li>
+                    <li>Nymia</li>
+                    <li>Zena Elidin Tibers</li>
+                    <li>Ayne Drophar</li>
+                    <li>Calina Teslanar</li>
+                    <li>Rysdan</li>
+                    <li>Akara</li>
+                    <li>Rivatha</li>
+                    <li>Meldin Sithik Relboron</li>
+                    <li>Lahorn Uhrd</li>
+                    <li>Ackmard Touck Ixen</li>
+                    <li>Rivatha Vilan</li>
+                    <li>Sevestra</li>
+                    <li>Riss Cordale</li>
+                    <li>Enoka Witfar Pendus</li>
+                    <li>Useli Durmark Silpal</li>
+                    <li><a href="#">Qidan Abdun Riss</a></li>
+                    <li>Nymia Casdon</li>
+                    <li>Amara Hecton Nildale</li>
+                    <li>Efar Safize</li>
+                    <li>Bolrock Wrathran Elson</li>
+                    <li>Ipdorn Zerin</li>
+                    <li>Andonna Eli</li>
+                    <li>Colthan Casdon</li>
+                </ul>
+                
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
