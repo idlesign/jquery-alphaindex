@@ -2,7 +2,7 @@ jquery-alphaindex
 =================
 https://github.com/idlesign/jquery-alphaindex
 
-
+[![npm](https://img.shields.io/npm/v/jquery-alphaindex.svg)]() [![npm](https://img.shields.io/npm/dt/jquery-alphaindex.svg)]()
 
 Description
 -----------
@@ -17,22 +17,20 @@ Usage
 
 Make a list:
 
-.. code-block:: html
-
+```html
     <ul id="my-list">
         <li>Joker James</li>
         <li>Anderson Ann</li>
         <li>Johnson John</li>
     </ul>
-
+```
 
 Initialize an index:
 
-.. code-block:: javascript
-
+```javascript
     var myIndex = $('#my-list').makeAlphaIndex(),
         indexBar = myIndex.alphaIndexBar;
-
+```
 
 Demo
 ----
