@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>jQuery AlphaIndex Plugin Tests</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.1.1.css">
+</head>
+<body>
+
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://code.jquery.com/qunit/qunit-2.1.1.js"></script>
+    <script src="../build/jquery.alphaindex.min.js"></script>
+    <script src="tests.js"></script>
+
+    <script>
+        $(function(){
+            window.alphaIndex = $('#alpha').makeAlphaIndex();
+        });
+    </script>
+
+
+    <ul id="alpha">
+        <li>Johnson John</li>
+        <li><a href="#1">Иванов Иван</a></li>
+        <li><img src="non.png"> <a href="#2"> Anderson   Ann </a></li>
+        <li>Абрамов Абрам</li>
+        <li>1st Place</li>
+        <li>Ильин Илья</li>
+        <li>Joker James</li>
+        <li></li>
+    </ul>
+
+</body>
+</html>
