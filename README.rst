@@ -37,7 +37,8 @@ Initialize an index:
 Demo
 ----
 
-Demo page is available: demo/demo.html.
+* Demo page is available in sources: demo/demo.html.
+* Hosted demo: https://idlesign.github.io/jquery-alphaindex/demo/demo.html
 
 
 Styling
