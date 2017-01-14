@@ -13,12 +13,12 @@
 
     $.fn.makeAlphaIndex = function() {
 
-        var indexList = this;
+        var indexList = this,
 
-        var prepareIndex = function(el) {
+            prepareIndex = function($list) {
                 var indexed = {};
 
-                $.each($('li', this), function(_, val){
+                $.each($('li', $list), function(_, val){
                     var $item = $(val),
                         text = $item.text().replace(/\s+/g, ' ').trim(),
                         indexChar = text[0];
@@ -125,7 +125,7 @@
             };
 
         indexList.addClass('alpha-index-list');
-        indexList.alphaIndexBar = initWidgets(this, prepareIndex(this));
+        indexList.alphaIndexBar = initWidgets(this, prepareIndex(indexList));
         indexList.alphaIndexToggle = toggleItems;
 
         return indexList;
