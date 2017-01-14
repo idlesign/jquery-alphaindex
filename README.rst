@@ -34,6 +34,12 @@ Initialize an index:
         indexBar = myIndex.alphaIndexBar;
 
 
+Demo
+----
+
+Demo page is available: demo/demo.html.
+
+
 Styling
 -------
 
