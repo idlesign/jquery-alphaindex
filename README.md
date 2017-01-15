@@ -2,8 +2,9 @@ jquery-alphaindex
 =================
 https://github.com/idlesign/jquery-alphaindex
 
-[![npm](https://img.shields.io/npm/v/jquery-alphaindex.svg)](https://www.npmjs.com/package/jquery-alphaindex) [![npm](https://img.shields.io/npm/dt/jquery-alphaindex.svg)](https://www.npmjs.com/package/jquery-alphaindex)
 [![Github All Releases](https://img.shields.io/github/downloads/idlesign/jquery-alphaindex/total.svg)]()
+
+[![npm](https://img.shields.io/npm/v/jquery-alphaindex.svg)](https://www.npmjs.com/package/jquery-alphaindex) [![npm](https://img.shields.io/npm/dt/jquery-alphaindex.svg)](https://www.npmjs.com/package/jquery-alphaindex)
 
 
 Description
