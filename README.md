@@ -15,7 +15,11 @@ An alphabetical index may help your users to navigate through a long list of ite
 Usage
 -----
 
-Make a list:
+1. Include ``jQuery``.
+
+2. Include ``jquery.alphaindex.js`` or ``jquery.alphaindex.min.js``.
+
+3. Make a list:
 
 ```html
     <ul id="my-list">
@@ -25,11 +29,17 @@ Make a list:
     </ul>
 ```
 
-Initialize an index:
+4. Initialize an index:
 
 ```javascript
     var myIndex = $('#my-list').makeAlphaIndex(),
-        indexBar = myIndex.alphaIndexBar;
+        indexBar = myIndex.alphaIndexBar;  // bar object, if you need it
+
+    myIndex.alphaIndexToggle('a');  // show A indexed
+    myIndex.alphaIndexToggle('a');  // hide A indexed
+    myIndex.alphaIndexToggle(true);  // show all
+    myIndex.alphaIndexToggle(false);  // hide all
+    myIndex.alphaIndexToggle();  // toggle all
 ```
 
 Demo
