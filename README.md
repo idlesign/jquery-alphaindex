@@ -2,8 +2,6 @@ jquery-alphaindex
 =================
 https://github.com/idlesign/jquery-alphaindex
 
-[![Github All Releases](https://img.shields.io/github/downloads/idlesign/jquery-alphaindex/total.svg)]()
-
 [![npm](https://img.shields.io/npm/v/jquery-alphaindex.svg)](https://www.npmjs.com/package/jquery-alphaindex) [![npm](https://img.shields.io/npm/dt/jquery-alphaindex.svg)](https://www.npmjs.com/package/jquery-alphaindex)
 
 
@@ -38,8 +36,7 @@ Usage
     var myIndex = $('#my-list').makeAlphaIndex(),
         indexBar = myIndex.alphaIndexBar;  // bar object, if you need it
 
-    myIndex.alphaIndexToggle('a');  // show A indexed
-    myIndex.alphaIndexToggle('a');  // hide A indexed
+    myIndex.alphaIndexToggle('a');  // toggle A indexed
     myIndex.alphaIndexToggle(true);  // show all
     myIndex.alphaIndexToggle(false);  // hide all
     myIndex.alphaIndexToggle();  // toggle all
