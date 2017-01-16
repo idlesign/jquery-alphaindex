@@ -13,6 +13,13 @@ Description
 An alphabetical index may help your users to navigate through a long list of items.
 
 
+Demo
+----
+
+* Demo page is available in sources: demo/demo.html.
+* Hosted demo: https://idlesign.github.io/jquery-alphaindex/demo/demo.html
+
+
 Usage
 -----
 
@@ -42,11 +49,12 @@ Usage
     myIndex.alphaIndexToggle();  // toggle all
 ```
 
-Demo
-----
 
-* Demo page is available in sources: demo/demo.html.
-* Hosted demo: https://idlesign.github.io/jquery-alphaindex/demo/demo.html
+Options
+-------
+
+* showItemsCount - Show number of items over each letter in index bar. Default: true.
+* activateFirstIndex - Show list item belonging to the first letter in index bar after load. Default: true.
 
 
 Styling
@@ -55,9 +63,3 @@ Styling
 * List is marked with ``.alpha-index-list``.
 * Index bar is marked with ``.alpha-index-bar``.
 * Index bar current item is marked with ``.current``.
-
-
-Options
--------
-
-* showItemsCount - Show number of items over each letter in index bar. Default: true.

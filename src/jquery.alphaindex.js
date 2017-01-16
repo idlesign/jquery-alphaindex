@@ -13,7 +13,7 @@
 
     $.fn.makeAlphaIndex = function(options) {
 
-        var indexList = this,
+        var $indexList = this,
             settings = $.extend({}, $.fn.makeAlphaIndex.defaults, options),
 
             /**
@@ -62,12 +62,12 @@
             toggleItems = function(indexObj) {
 
                 if (indexObj === undefined) {
-                    $('li', indexList).toggle();
+                    $('li', $indexList).toggle();
                     return;
                 }
 
                 if (typeof indexObj === 'boolean') {
-                    $('li', indexList).toggle(indexObj);
+                    $('li', $indexList).toggle(indexObj);
                     return;
                 }
 
@@ -77,7 +77,7 @@
                 }
 
                 var targetShown = false,
-                    index = indexList.alphaIndex,
+                    index = $indexList.alphaIndex,
                     known = index[indexObj];
 
                 // This loop is here only to not to ruin semantics
@@ -97,7 +97,7 @@
                     });
                 }
 
-                $.each($('a', indexList.alphaIndexBar), function(_, item) {
+                $.each($('a', $indexList.alphaIndexBar), function(_, item) {
                     var $item = $(item);
 
                     $item.removeClass('current');
@@ -123,6 +123,8 @@
                 var indexChars = Object.keys(indexed).sort(),
                     $indexBar = $('<ul>');
 
+                $list.indexChars = indexChars;  // For further usage.
+
                 $list.before($indexBar);
 
                 $.each(indexChars, function(_, indexChar) {
@@ -145,24 +147,42 @@
                 });
 
                 return $indexBar;
+            },
+
+            /**
+             * Handles various options.
+             *
+             * @param $list
+             */
+            handleOptions = function($list) {
+
+                if (settings.activateFirstIndex) {
+                    var first = $list.indexChars[0];
+                    if (first !== undefined) {
+                        toggleItems(first);
+                    }
+                }
             };
 
-        indexList.hide();  // Prevent flicker.
+        $indexList.hide();  // Prevent flicker.
 
-        var index = prepareIndex(indexList),
-            indexBar = initIndexBar(indexList, index);
+        var index = prepareIndex($indexList),
+            $indexBar = initIndexBar($indexList, index);
 
-        indexList.addClass('alpha-index-list');
-        indexList.alphaIndex = index;
-        indexList.alphaIndexBar = indexBar;
-        indexList.alphaIndexToggle = toggleItems;
+        $indexList.addClass('alpha-index-list');
+        $indexList.alphaIndex = index;
+        $indexList.alphaIndexBar = $indexBar;
+        $indexList.alphaIndexToggle = toggleItems;
 
-        indexList.show();
+        $indexList.show();
 
-        return indexList;
+        handleOptions($indexList);
+
+        return $indexList;
     };
 
     $.fn.makeAlphaIndex.defaults = {
+        activateFirstIndex: true,
         showItemsCount: true
     };
 

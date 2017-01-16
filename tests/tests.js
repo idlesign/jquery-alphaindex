@@ -4,12 +4,11 @@
 QUnit.test('test basic', function(assert) {
     'use strict';
 
-    var $list = $('#alpha');
+    var $list = $('#alpha'),
+        index = $list.makeAlphaIndex({activateFirstIndex: false});
 
     assert.equal($list.children(':visible').length, 0, 'items hidden');
     assert.equal($list.children().length, 7, 'all items in place');
-
-    var index = window.alphaIndex;
 
     assert.ok(index !== undefined, 'global var is set');
 
@@ -68,13 +67,13 @@ QUnit.test('test options', function(assert) {
 
     assert.equal(parseInt($(sups[0]).text()), 1, 'count A');
     assert.equal(parseInt($(sups[1]).text()), 2, 'count T');
+    assert.equal($('li:visible', $list).length, 1, 'first index active');
 
     removeList($list);
 
     var [$list, $bar] = makeList('<ul><li>One</li><li>Two</li></ul>', {showItemsCount: false});
-
     assert.equal($('sup', $bar).length, 0, 'no counts');
-
     removeList($list);
+
 
 });
