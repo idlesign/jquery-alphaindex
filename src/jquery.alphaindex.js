@@ -15,6 +15,13 @@
 
         var indexList = this,
 
+            /**
+             * Indexes items in target list by first letter
+             * and returns that index.
+             *
+             * @param $list
+             * @returns {{}}
+             */
             prepareIndex = function($list) {
                 var indexed = {};
 
@@ -27,13 +34,11 @@
                         $item.remove();
                         return;
                     }
+                    $item.hide();
 
                     indexChar = indexChar.toLowerCase();
 
                     var known = indexed[indexChar];
-
-                    $item.data('idxChar', indexChar);
-                    $item.hide();
 
                     if (known === undefined) {
                         indexed[indexChar] = [$item];
@@ -47,6 +52,12 @@
                 return indexed;
             },
 
+            /**
+             * Toggles items in target list which are index by indexObj.
+             *
+             * @param indexObj Could be a letter from index (e.g. `A`, `a`) or index
+             *     bar letter object (DOM element).
+             */
             toggleItems = function(indexObj) {
 
                 if (indexObj === undefined) {
@@ -64,21 +75,26 @@
                     indexObj = $(indexObj).data('idxChar');
                 }
 
-                var targetShown = false;
+                var targetShown = false,
+                    index = indexList.alphaIndex,
+                    known = index[indexObj];
 
-                $.each($('li', indexList), function(_, item) {
-                    var $item = $(item),
-                        isTarget = $item.data('idxChar') === indexObj;
+                // This loop is here only to not to ruin semantics
+                // of .alphaIndexToggle('a') like calls toggling letter.
+                $.each(index, function (indexer, items) {
+                    if (indexer !== indexObj) {
+                        $.each(items, function (_, $item) {
+                            $item.hide();
+                        });
+                    }
+                });
 
-                    if (isTarget) {
+                if (known) {
+                    $.each(known, function (_, $item) {
                         $item.toggle();
                         targetShown = $item.is(':visible');
-
-                    } else {
-                        $item.hide();
-                    }
-
-                });
+                    });
+                }
 
                 $.each($('a', indexList.alphaIndexBar), function(_, item) {
                     var $item = $(item);
@@ -92,7 +108,16 @@
 
             },
 
-            initWidgets = function($list, indexed) {
+            /**
+             * Initializes index bar.
+             *
+             * Returns index bar element.
+             *
+             * @param $list
+             * @param indexed
+             * @returns {*|HTMLElement}
+             */
+            initIndexBar = function($list, indexed) {
 
                 var indexChars = Object.keys(indexed).sort(),
                     $indexBar = $('<ul>');
@@ -119,11 +144,12 @@
 
         indexList.hide();  // Prevent flicker.
 
-        var index = prepareIndex(indexList);
+        var index = prepareIndex(indexList),
+            indexBar = initIndexBar(indexList, index);
 
         indexList.addClass('alpha-index-list');
         indexList.alphaIndex = index;
-        indexList.alphaIndexBar = initWidgets(indexList, index);
+        indexList.alphaIndexBar = indexBar;
         indexList.alphaIndexToggle = toggleItems;
 
         indexList.show();
