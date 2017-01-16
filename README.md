@@ -34,7 +34,7 @@ Usage
 
 ```javascript
     var myIndex = $('#my-list').makeAlphaIndex(),
-        indexBar = myIndex.alphaIndexBar;  // bar object, if you need it
+        $indexBar = myIndex.alphaIndexBar;  // bar object, if you need it
 
     myIndex.alphaIndexToggle('a');  // toggle A indexed
     myIndex.alphaIndexToggle(true);  // show all
@@ -55,3 +55,9 @@ Styling
 * List is marked with ``.alpha-index-list``.
 * Index bar is marked with ``.alpha-index-bar``.
 * Index bar current item is marked with ``.current``.
+
+
+Options
+-------
+
+* showItemsCount - Show number of items over each letter in index bar. Default: true.

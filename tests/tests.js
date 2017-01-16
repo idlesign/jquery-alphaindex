@@ -46,3 +46,35 @@ QUnit.test('test basic', function(assert) {
     assert.equal($('a', bar).filter('.current').length, 0, 'current zero');
 
 });
+
+QUnit.test('test options', function(assert) {
+    'use strict';
+
+    var makeList = function(html, options) {
+            var $list = $(html);
+            $('#alpha').after($list);
+
+            var $bar = $list.makeAlphaIndex(options).alphaIndexBar;
+            return [$list, $bar];
+        },
+        removeList = function($list) {
+            var $bar = $list.alphaIndexBar;
+            $list.remove();
+            $bar.remove();
+        };
+
+    var [$list, $bar] = makeList('<ul><li>One</li><li>Two</li><li>Three</li></ul>'),
+        sups = $('sup', $bar);
+
+    assert.equal(parseInt($(sups[0]).text()), 1, 'count A');
+    assert.equal(parseInt($(sups[1]).text()), 2, 'count T');
+
+    removeList($list);
+
+    var [$list, $bar] = makeList('<ul><li>One</li><li>Two</li></ul>', {showItemsCount: false});
+
+    assert.equal($('sup', $bar).length, 0, 'no counts');
+
+    removeList($list);
+
+});

@@ -11,9 +11,10 @@
 (function($) {
     'use strict';
 
-    $.fn.makeAlphaIndex = function() {
+    $.fn.makeAlphaIndex = function(options) {
 
         var indexList = this,
+            settings = $.extend({}, $.fn.makeAlphaIndex.defaults, options),
 
             /**
              * Indexes items in target list by first letter
@@ -127,6 +128,10 @@
                 $.each(indexChars, function(_, indexChar) {
                     var $barItem = $('<a href="#">' + indexChar.toUpperCase() + '</a>');
 
+                    if (settings.showItemsCount) {
+                        $barItem.append('<sup>' + indexed[indexChar].length + '</sup>');
+                    }
+
                     $barItem.data('idxChar', indexChar);
                     $indexBar.append($barItem);
 
@@ -155,6 +160,10 @@
         indexList.show();
 
         return indexList;
+    };
+
+    $.fn.makeAlphaIndex.defaults = {
+        showItemsCount: true
     };
 
 }(jQuery));
