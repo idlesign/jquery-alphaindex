@@ -2,8 +2,8 @@ jquery-alphaindex changelog
 ===========================
 
 
-Unreleased
-----------
+v0.2.0
+------
 + Added `showItemsCount` option.
 + Added `activateFirstIndex` option.
 * Speed up.

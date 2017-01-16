@@ -1,6 +1,6 @@
 {
   "name": "jquery-alphaindex",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "jQuery plugin to create alphabetical indexes for your lists.",
   "main": "src/jquery.alphaindex.js",
   "homepage": "https://github.com/idlesign/jquery-alphaindex#readme",
