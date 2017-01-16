@@ -30,20 +30,18 @@
 
                     indexChar = indexChar.toLowerCase();
 
-                    var known = indexed[indexChar],
-                        $itemClone = $item.clone();
+                    var known = indexed[indexChar];
 
-                    $itemClone.data('idxChar', indexChar);
-                    $itemClone.hide();
+                    $item.data('idxChar', indexChar);
+                    $item.hide();
 
                     if (known === undefined) {
-                        indexed[indexChar] = [$itemClone];
+                        indexed[indexChar] = [$item];
 
                     } else {
-                        known.push($itemClone);
+                        known.push($item);
                     }
 
-                    $item.remove();
                 });
 
                 return indexed;
@@ -102,17 +100,12 @@
                 $list.before($indexBar);
 
                 $.each(indexChars, function(_, indexChar) {
-                    var known = indexed[indexChar],
-                        $barItem = $('<a href="#">' + indexChar.toUpperCase() + '</a>');
+                    var $barItem = $('<a href="#">' + indexChar.toUpperCase() + '</a>');
 
                     $barItem.data('idxChar', indexChar);
                     $indexBar.append($barItem);
 
                     $barItem.wrap('<li></li>');
-
-                    $.each(known, function(_, $item) {
-                        $list.append($item);
-                    });
                 });
 
                 $indexBar.addClass('alpha-index-bar');
@@ -124,9 +117,16 @@
                 return $indexBar;
             };
 
+        indexList.hide();  // Prevent flicker.
+
+        var index = prepareIndex(indexList);
+
         indexList.addClass('alpha-index-list');
-        indexList.alphaIndexBar = initWidgets(this, prepareIndex(indexList));
+        indexList.alphaIndex = index;
+        indexList.alphaIndexBar = initWidgets(indexList, index);
         indexList.alphaIndexToggle = toggleItems;
+
+        indexList.show();
 
         return indexList;
     };
