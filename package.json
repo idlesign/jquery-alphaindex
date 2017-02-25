@@ -26,8 +26,7 @@
     "url": "https://github.com/idlesign/jquery-alphaindex/issues"
   },
   "scripts": {
-    "test": "echo \"See tests in `tests/` directory\" && exit 1",
-    "uglify": "uglifyjs jquery.easing.js -o jquery.easing.min.js"
+    "test": "echo \"See tests in `tests/` directory\" && exit 1"
   },
   "dependencies": {
     "jquery": ">=1.7.0"
